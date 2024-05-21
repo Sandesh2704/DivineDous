@@ -41,49 +41,49 @@ export default function MatchesCard({ item, onNext, onPrevious }) {
     const [currentLikedItemId, setCurrentLikedItemId] = useState(null);
     const handleLike = (id) => {
         setLikedItems((prevLikedItems) => ({
-          ...prevLikedItems,
-          [id]: !prevLikedItems[id] 
+            ...prevLikedItems,
+            [id]: !prevLikedItems[id]
         }));
         if (currentLikedItemId !== null && currentLikedItemId !== id) {
-          setLikedItems((prevLikedItems) => ({
-            ...prevLikedItems,
-            [currentLikedItemId]: false
-          }));
+            setLikedItems((prevLikedItems) => ({
+                ...prevLikedItems,
+                [currentLikedItemId]: false
+            }));
         }
         setCurrentLikedItemId(id);
-      };
+    };
 
 
-      const [connection, setConnection] = useState({});
-      const [currentConnectionID, setCurrentConnectionID] = useState(null);
-      
-      const handleConnectRequest = (id) => {
+    const [connection, setConnection] = useState({});
+    const [currentConnectionID, setCurrentConnectionID] = useState(null);
+
+    const handleConnectRequest = (id) => {
         setConnection((prevConnection) => ({
-          ...prevConnection,
-          [id]: !prevConnection[id],
-        }));
-      
-        if (currentConnectionID !== null && currentConnectionID !== id) {
-          setConnection((prevConnection) => ({
             ...prevConnection,
-            [currentConnectionID]: false,
-          }));
+            [id]: !prevConnection[id],
+        }));
+
+        if (currentConnectionID !== null && currentConnectionID !== id) {
+            setConnection((prevConnection) => ({
+                ...prevConnection,
+                [currentConnectionID]: false,
+            }));
         }
-      
+
         setCurrentConnectionID(id);
-      };
+    };
 
 
     return (
         <>
             <div className='relative h-[37rem] md:h-[41rem] lg:h-[37rem] w-[95%] md:w-[60%] lg:w-[37%] rounded-2xl bg-white text-white'>
 
-<div className='absolute py-6 pr-2 items-center flex opacity-75  top-60 px-0 rounded-r-full left-0 bg-black/50 '>
-<button><FaAngleLeft className='text-2xl ' onClick={onPrevious}/></button>
-</div>
-<div className='absolute py-6 pl-2 items-center flex opacity-75  top-60 px-0 rounded-l-full right-0 bg-black/50'>
-<button><FaAngleRight className=' text-2xl ' onClick={onNext}/></button>
-</div>
+                <div className='absolute py-6 pr-2 items-center flex opacity-75  top-60 px-0 rounded-r-full left-0 bg-black/50 '>
+                    <button><FaAngleLeft className='text-2xl ' onClick={onPrevious} /></button>
+                </div>
+                <div className='absolute py-6 pl-2 items-center flex opacity-75  top-60 px-0 rounded-l-full right-0 bg-black/50'>
+                    <button><FaAngleRight className=' text-2xl ' onClick={onNext} /></button>
+                </div>
 
 
 
@@ -95,21 +95,21 @@ export default function MatchesCard({ item, onNext, onPrevious }) {
                         <p className='text-base md:text-lg font-normal  flex items-center '>{item.LivingCity} <LuDot /> {item.WorkingAsRole}</p>
                     </div>
                     <div className='flex flex-row justify-around '>
-                        <div className='flex flex-col justify-center items-center text-xs md:text-sm gap-1'>  <span className='bg-gradient-to-t from-teal-500 to-cyan-500 p-3 rounded-full drop-shadow-xl'><IoClose className='text-3xl' onClick={onNext}/></span> Skip</div>
+                        <div className='flex flex-col justify-center items-center text-xs md:text-sm gap-1'>  <span className='bg-gradient-to-t from-teal-500 to-cyan-500 p-3 rounded-full drop-shadow-xl'><IoClose className='text-3xl' onClick={onNext} /></span> Skip</div>
                         <div className='flex flex-col justify-center items-center text-xs md:text-sm gap-1'>
-  <span className={`bg-gradient-to-b from-violet-500 to-indigo-500 p-4 rounded-full drop-shadow-xl`} onClick={() => handleConnectRequest(item.id)}>
-  {connection[item.id] ? <FaCheck  className='text-2xl'/> : <TbArrowBigUpLine  className='text-2xl'/>}
-    
-  </span>
-  {connection[item.id] ?  <span>Connection Send</span> : <span>Connect</span> }
-</div>
+                            <span className={`bg-gradient-to-b from-violet-500 to-indigo-500 p-4 rounded-full drop-shadow-xl`} onClick={() => handleConnectRequest(item.id)}>
+                                {connection[item.id] ? <FaCheck className='text-2xl' /> : <TbArrowBigUpLine className='text-2xl' />}
 
-                        <div className='flex flex-col justify-center items-center text-xs md:text-sm gap-1'>  <span  className={`p-3 rounded-full drop-shadow-xl ${likedItems[item.id] ? 'bg-gradient-to-t from-red-600 to-pink-600 ' : ' bg-gradient-to-t from-red-300 to-pink-400'}`}><FcLikePlaceholder color='blue' className='text-3xl ' onClick={() => handleLike(item.id)}/></span> Like  </div>
+                            </span>
+                            {connection[item.id] ? <span>Connection Send</span> : <span>Connect</span>}
+                        </div>
+
+                        <div className='flex flex-col justify-center items-center text-xs md:text-sm gap-1'>  <span className={`p-3 rounded-full drop-shadow-xl ${likedItems[item.id] ? 'bg-gradient-to-t from-red-600 to-pink-600 ' : ' bg-gradient-to-t from-red-300 to-pink-400'}`}><FcLikePlaceholder color='blue' className='text-3xl ' onClick={() => handleLike(item.id)} /></span> Like  </div>
                     </div>
                 </div>
 
                 <div className='Card-Scroll rounded-2xl overflow-x-scroll flex h-full flex-col scrollbar-none rounded-2xl'>
-                    <Image  src={item.ProfileImage ? item.ProfileImage : NutralProfileImg} alt="profile-img " width={900}  height={1000}  className='h-[41rem] md:h-[41rem] lg:h-[40rem]' />
+                    <Image src={item.ProfileImage ? item.ProfileImage : NutralProfileImg} alt="profile-img " width={900} height={1000} className='h-[41rem] md:h-[41rem] lg:h-[40rem]' />
                     <ul className="flex flex-wrap -mb-px text-sm text-black border-b font-medium text-center" id="default-tab" role="tablist">
                         <li className="" role="presentation">
                             <button
@@ -279,15 +279,15 @@ export default function MatchesCard({ item, onNext, onPrevious }) {
 
 
 
-const ProfileInfo = ({icon, title, text})=> {
+const ProfileInfo = ({ icon, title, text }) => {
     return (
-      <div className='flex gap-4 md:gap-6 '>
-          <div className='flex-none pt-1 md:pt-2 text-red-400 text-xl md:text-2xl'>{icon}</div>
-          <div className='grow flex-col gap-y-1'>
-            <p className='text-sm md:text-base text-gray-400 font-normal'>{title}</p>
-            <h1 className='text-base md:text-lg font-normal text-gray-700'>{text}</h1>
-          </div>
+        <div className='flex gap-4 md:gap-6 '>
+            <div className='flex-none pt-1 md:pt-2 text-red-400 text-xl md:text-2xl'>{icon}</div>
+            <div className='grow flex-col gap-y-1'>
+                <p className='text-sm md:text-base text-gray-400 font-normal'>{title}</p>
+                <h1 className='text-base md:text-lg font-normal text-gray-700'>{text}</h1>
+            </div>
         </div>
     )
-  }
-  
+}
+

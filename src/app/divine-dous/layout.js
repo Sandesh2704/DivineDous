@@ -14,9 +14,9 @@ export default function RootLayout({ children }) {
     
     return (
 
-        <div className="relative">
+        <div className="relative bg-gray-100">
             <NavBar />
-            <div className="bg-gray-200">
+            <div className="">
             {children}
             </div>
        
