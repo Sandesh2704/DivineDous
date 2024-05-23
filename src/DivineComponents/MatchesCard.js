@@ -4,31 +4,22 @@ import NutralProfileImg from '../../public/NutralProfileImg.webp'
 import Image from 'next/image'
 
 
-import { FaCheck } from "react-icons/fa";
 import { FcLikePlaceholder } from "react-icons/fc";
-import { IoClose } from "react-icons/io5";
 import { LuDot } from "react-icons/lu";
-import { AiOutlineUser } from "react-icons/ai";
 import { RiUserAddLine } from "react-icons/ri";
-import { GiBodyHeight } from "react-icons/gi";
+import { GiBodyHeight, GiGlobeRing } from "react-icons/gi";
 import { IoIosBook } from "react-icons/io";
-import { GiGlobeRing } from "react-icons/gi";
-import { IoLocationOutline } from "react-icons/io5";
-import { MdOutlineMapsHomeWork } from "react-icons/md";
-import { FaRegCalendarAlt } from "react-icons/fa";
-import { SlUser } from "react-icons/sl";
-import { SlUserFemale } from "react-icons/sl";
-import { MdApartment } from "react-icons/md";
+import { IoLocationOutline, IoClose } from "react-icons/io5";
+import { FaRegCalendarAlt, FaCheck } from "react-icons/fa";
+import { SlUserFemale, SlUser } from "react-icons/sl";
 import { HiOutlineUserGroup } from "react-icons/hi";
-import { AiTwotoneGold } from "react-icons/ai";
+import { AiTwotoneGold, AiOutlineUser } from "react-icons/ai";
 import { BsDropbox } from "react-icons/bs";
-import { MdTripOrigin } from "react-icons/md";
-import { BiHandicap } from "react-icons/bi";
-import { MdOutlineFoodBank } from "react-icons/md";
-import { BiFoodMenu } from "react-icons/bi";
-import { FaAngleRight } from "react-icons/fa6";
-import { FaAngleLeft } from "react-icons/fa6";
+import { MdOutlineFoodBank, MdTripOrigin, MdApartment, MdOutlineMapsHomeWork, MdWork } from "react-icons/md";
 import { TbArrowBigUpLine } from "react-icons/tb";
+import { BiLogoGmail, BiFoodMenu, BiHandicap } from "react-icons/bi";
+import { FaPhone, FaAngleLeft, FaAngleRight, FaMoneyBills, FaMapLocationDot } from "react-icons/fa6";
+import { RiGraduationCapLine } from "react-icons/ri";
 
 export default function MatchesCard({ item, onNext, onPrevious }) {
 
@@ -51,6 +42,7 @@ export default function MatchesCard({ item, onNext, onPrevious }) {
             }));
         }
         setCurrentLikedItemId(id);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
 
@@ -71,6 +63,7 @@ export default function MatchesCard({ item, onNext, onPrevious }) {
         }
 
         setCurrentConnectionID(id);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
 
@@ -136,7 +129,7 @@ export default function MatchesCard({ item, onNext, onPrevious }) {
                                 Family
                             </button>
                         </li>
-                        <li role="presentation">
+                        {/* <li role="presentation">
                             <button
                                 className={`inline-block py-3 px-4  rounded-t-lg ${activeTab === 'Preferences' ? 'border-b-2 border-blue-500' : ''}`}
                                 id="Preferences"
@@ -146,11 +139,11 @@ export default function MatchesCard({ item, onNext, onPrevious }) {
                                 aria-selected={activeTab === 'Preferences'}>
                                 Partner Preferences
                             </button>
-                        </li>
+                        </li> */}
                     </ul>
 
                     <div id="default-tab-content" className='text-black'>
-                        <div className={`p-4 lg:p-6 gap-y-4 flex flex-col mb-60 ${activeTab !== 'About' ? 'hidden' : ''}`} id="About" role="tabpanel" aria-labelledby="About">
+                        <div className={`p-4 lg:p-6 gap-y-4 flex flex-col mb-48 ${activeTab !== 'About' ? 'hidden' : ''}`} id="About" role="tabpanel" aria-labelledby="About">
                             <h1 className='text-xl font-semibold text-gray-600'>About Her</h1>
 
                             <div className='flex flex-col gap-y-5 md:gap-y-7'>
@@ -220,6 +213,76 @@ export default function MatchesCard({ item, onNext, onPrevious }) {
                                     text={item.ResidencyStatus}
                                 />
                             </div>
+
+
+                            <h1 className='text-xl font-semibold text-gray-600 mt-5'>Carrier & Location</h1>
+                            <div className='flex flex-col gap-y-5 md:gap-y-7'>
+                                <ProfileInfo
+                                    icon={<RiGraduationCapLine />}
+                                    title='Qualification'
+                                    text={item.Qualification}
+                                />
+                                <ProfileInfo
+                                    icon={<RiGraduationCapLine />}
+                                    title='Degree'
+                                    text={item.Degree}
+                                />
+                                <ProfileInfo
+                                    icon={<MdWork />}
+                                    title='Working Sector'
+                                    text={item.WorkingSector}
+                                />
+                                <ProfileInfo
+                                    icon={<MdWork />}
+                                    title='Working As Role'
+                                    text={item.WorkingAsRole}
+                                />
+                                <ProfileInfo
+                                    icon={<FaMoneyBills />}
+                                    title='Salary'
+                                    text={item.Salary}
+                                />
+
+                                <h1 className='text-xl font-semibold text-gray-600 mt-5'>Location</h1>
+                                <div className='flex flex-col gap-y-5 md:gap-y-7'>
+                                    <ProfileInfo
+                                        icon={<FaMapLocationDot />}
+                                        title='Living Country'
+                                        text={item.LivingCountry}
+                                    />
+                                    <ProfileInfo
+                                        icon={<FaMapLocationDot />}
+                                        title='Living State'
+                                        text={item.LivingState}
+                                    />
+                                    <ProfileInfo
+                                        icon={<FaMapLocationDot />}
+                                        title='Living City'
+                                        text={item.LivingCity}
+                                    />
+                                    <ProfileInfo
+                                        icon={<FaMapLocationDot />}
+                                        title='Residency Status'
+                                        text={item.ResidencyStatus}
+                                    />
+                                </div>
+
+
+                                <h1 className='text-xl font-semibold text-gray-600 mt-5'>Contect</h1>
+
+                                <div className='flex flex-col gap-y-5 md:gap-y-7'>
+                                    <ProfileInfo
+                                        icon={<BiLogoGmail />}
+                                        title='Gamil Address'
+                                        text={item.GamilAddress}
+                                    />
+                                    <ProfileInfo
+                                        icon={<FaPhone />}
+                                        title='Number'
+                                        text={item.number}
+                                    />
+                                </div>
+                            </div>
                         </div>
 
                         <div className={`p-4 lg:p-6 gap-y-4 flex flex-col mb-60 ${activeTab !== 'Family' ? 'hidden' : ''}`} id="Family" role="tabpanel" aria-labelledby="Family">
@@ -264,11 +327,11 @@ export default function MatchesCard({ item, onNext, onPrevious }) {
                             </div>
                         </div>
 
-                        <div className={`p-4 lg:p-6 gap-y-4 flex flex-col mb-60 ${activeTab !== 'Preferences' ? 'hidden' : ''}`} id="Preferences" role="tabpanel" aria-labelledby="Preferences">
+                        {/* <div className={`p-4 lg:p-6 gap-y-4 flex flex-col mb-60 ${activeTab !== 'Preferences' ? 'hidden' : ''}`} id="Preferences" role="tabpanel" aria-labelledby="Preferences">
                             <h1 className='text-xl font-semibold text-gray-600'>
                                 Preferences</h1>
 
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

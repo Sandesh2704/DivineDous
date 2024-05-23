@@ -135,6 +135,12 @@ export default function Navbar() {
                             Sign out
                         </span>
                     </div>
+                   
+                    <div className="py-2">
+                        <span className="block px-3 md:px-4 cursor-pointer" onClick={logout}>
+                            Help {' '} <span className="text-blue-400"> +91 **********</span>
+                        </span>
+                    </div>
                 </div>
             )}
         </div>

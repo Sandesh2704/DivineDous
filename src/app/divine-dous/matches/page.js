@@ -19,6 +19,7 @@ export default function page() {
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % matches.length);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handlePrevious = () => {
