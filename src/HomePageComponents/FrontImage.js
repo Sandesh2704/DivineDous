@@ -179,7 +179,6 @@ const ageOptions = [];
       
       <Image src={img} className="w-full h-[600px] object-cover" alt="img"  priority></Image>
       <section className='absolute mx-0 md:mx-12  lg:mx-28  top-[6.5%] md:top-[13%] lg:top-[14%]  rounded-[1rem]  '>
-      <Link href='/divine-dous' className='cursor-pointer text-white text-2xl text-center flex items-center '>divine-dous - interface after login</Link>
         <h1 className='text-white text-2xl md:text-3xl lg:text-6xl text-center py-6  px-1 md:px-4 lg:px-12 [text-shadow:2px_3px_2px_black] z-0'>Find your Christian Life Partner</h1>
        
         <form className=' rounded-b-lg flex-col md:flex-row  flex flex-wrap gap-2 gap-y-3 py-3 md:py-5 px-3 bg-black/60 z-0'
